@@ -18,12 +18,15 @@
   "homepage": "https://github.com/cojs2018/echotechsuggest#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
+    "@material-ui/data-grid": "^4.0.0-alpha.17",
+    "fs": "^0.0.1-security",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "babel-jest": "^26.6.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",

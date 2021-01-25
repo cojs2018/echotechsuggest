@@ -80,11 +80,7 @@ exports[`New Bookmark renders correctly 1`] = `
   <div
     className="MuiGrid-root MuiGrid-item"
   >
-    <p
-      className="MuiTypography-root MuiTypography-body1"
-    >
-      
-    </p>
+    <div />
   </div>
 </div>
 `;

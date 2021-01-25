@@ -1,18 +1,28 @@
 import { Button, Grid, Typography, TextField } from '@material-ui/core';
 import React from 'react';
+import { createBookmark } from '../../utils/storage';
+import { Alert } from '@material-ui/lab';
 
 export default function NewBookmark() {
 
     const [bookmarkUrl, setBookmarkUrl] = React.useState('');
     const [message, setMessage] = React.useState('');
-    //const [error, setError] = React.useState(false);
+    const [error, setError] = React.useState(false);
 
     const handleURLChange = (event) => {
         setBookmarkUrl(event.target.value);
     }
 
-    const handleSubmit = () => {
-        setMessage('Url has now been stored, please await your results.');
+    const handleSubmit = async () => {
+        return createBookmark(bookmarkUrl)
+            .then(() => {
+                setError(false);
+                setMessage('Url has now been stored, please await your results.');
+            })
+            .catch((errorThrown) => {
+                setError(true);
+                setMessage(errorThrown.message);
+            })
     }
     
     return (
@@ -39,9 +49,11 @@ export default function NewBookmark() {
                 </Grid>
             </Grid>
             <Grid item>
-                <Typography variant='body1'>
-                    {message}
-                </Typography>
+                {message.length > 0 ? (
+                    <Alert severity={error ? "error" : "info"}>
+                        {message}
+                    </Alert>
+                ) : (<div/>)}
             </Grid>
         </Grid>
     )
