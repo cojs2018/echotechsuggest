@@ -10,19 +10,20 @@ export async function createBookmark(bookmarkUrl) {
         }
 
         const newUrlData = new URL(bookmarkLocation);
-
-        const bookmarkJSON = {
-            path: bookmarkUrl,
-            url: newUrlData.toJSON(),
-            createdAt: Date.now()
-        }
         const articleName = `${newUrlData.pathname} - ${newUrlData.hostname}`;
 
-        bookmarkUrlList[articleName] = bookmarkJSON;
+        const bookmarkJSON = {
+            articleName,
+            path: bookmarkLocation,
+            url: newUrlData,
+            createdAt: (new Date()).toUTCString(),
+        }
+
+        bookmarkUrlList.push(bookmarkJSON);
 
         writeFile(
             '../../bookmarkUrls.json',
-            JSON.stringify(bookmarkJSON, ' ', 4)
+            JSON.stringify(bookmarkUrlList, ' ', 4)
         )
 
         return {
@@ -53,11 +54,16 @@ export async function deleteBookmark(bookmarkName) {
             }
         }
 
-        delete bookmarkUrlList[bookmarkName]
+        const bookmarkIndex = bookmarkUrlList
+            .findIndex(bookmark => {
+                bookmark.articleName = bookmarkName;
+            })
+
+        bookmarkUrlList.splice();
 
         writeFile(
             '../../bookmarkUrls.json',
-            JSON.stringify(bookmarkJSON, ' ', 4)
+            JSON.stringify(bookmarkUrlList, ' ', 4)
         )
 
         return {
