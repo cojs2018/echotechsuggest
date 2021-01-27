@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611671931215" clover="3.2.0">
-  <project timestamp="1611671931216" name="All files">
-    <metrics statements="84" coveredstatements="69" conditionals="22" coveredconditionals="13" methods="26" coveredmethods="20" elements="132" coveredelements="102" complexity="0" loc="84" ncloc="84" packages="3" files="3" classes="3"/>
+<coverage generated="1611744502005" clover="3.2.0">
+  <project timestamp="1611744502005" name="All files">
+    <metrics statements="92" coveredstatements="76" conditionals="28" coveredconditionals="14" methods="30" coveredmethods="23" elements="150" coveredelements="113" complexity="0" loc="92" ncloc="92" packages="4" files="4" classes="4"/>
     <package name="components.manageBookmarks">
       <metrics statements="48" coveredstatements="40" conditionals="14" coveredconditionals="10" methods="17" coveredmethods="12"/>
       <file name="manageBookmarks.js" path="C:\Users\jstev\Documents\echotechsuggest\src\components\manageBookmarks\manageBookmarks.js">
         <metrics statements="48" coveredstatements="40" conditionals="14" coveredconditionals="10" methods="17" coveredmethods="12"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
         <line num="10" count="6" type="stmt"/>
         <line num="12" count="18" type="stmt"/>
         <line num="14" count="18" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="16" type="stmt"/>
         <line num="19" count="6" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="3" type="stmt"/>
@@ -22,7 +22,7 @@
         <line num="32" count="6" type="stmt"/>
         <line num="38" count="6" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
         <line num="48" count="3" type="stmt"/>
         <line num="50" count="3" type="stmt"/>
@@ -54,6 +54,20 @@
         <line num="110" count="1" type="stmt"/>
         <line num="111" count="0" type="stmt"/>
         <line num="114" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.menu">
+      <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="1" methods="4" coveredmethods="3"/>
+      <file name="menu.js" path="C:\Users\jstev\Documents\echotechsuggest\src\components\menu\menu.js">
+        <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="1" methods="4" coveredmethods="3"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.newBookmark">
