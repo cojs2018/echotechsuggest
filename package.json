@@ -1,15 +1,17 @@
 {
   "name": "echotechsuggest",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Application to store urls of websites bookmarked by the user. The user can make a request to alexa to open the app and suggest latest technologies based on user preferences",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --coverage -u",
     "lint": "eslint ."
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.4"
   },
@@ -18,12 +20,22 @@
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
+    "jest-enzyme": "^7.1.2",
+    "jsdom": "^15.2.1",
     "metro-react-native-babel-preset": "^0.59.0",
+    "react-dom": "^16.13.1",
+    "react-native-paper": "^4.7.1",
+    "react-native-vector-icons": "^8.0.0",
     "react-test-renderer": "16.13.1"
   },
   "jest": {
-    "preset": "react-native"
+    "presets": [
+      "react-native"
+    ]
   }
 }
