@@ -11,7 +11,7 @@ const getMockDate = () => {
 
 const mockBookmarkUrls = [
     {
-        id: "0",
+        bookmarkId: "0",
         articleName: "article0 - articlearchive",
         path: 'http://www.articlearchive.com/article0',
         url: new URL('http://www.articlearchive.com/article0'),
@@ -19,7 +19,7 @@ const mockBookmarkUrls = [
         tags: []
     },
     {
-        id: "1",
+        bookmarkId: "1",
         articleName: "article1 - articlearchive",
         path: 'http://www.articlearchive.com/article1',
         url: new URL('http://www.articlearchive.com/article1'),
@@ -27,7 +27,7 @@ const mockBookmarkUrls = [
         tags: []
     },
     {
-        id: "2",
+        bookmarkId: "2",
         articleName: "article2 - articlearchive",
         path: 'http://www.articlearchive.com/article2',
         url: new URL('http://www.articlearchive.com/article2'),

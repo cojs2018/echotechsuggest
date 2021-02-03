@@ -1,5 +1,3 @@
-import { writeFile } from 'fs';
-
 export async function createBookmark(bookmarkUrl) {
     return {
         status: 200,
@@ -10,7 +8,7 @@ export async function createBookmark(bookmarkUrl) {
 export async function listBookmarks() {
     return [
         {
-            id: "0",
+            bookmarkId: "0",
             articleName: "article0 - articlearchive",
             path: 'http://www.articlearchive.com/article0',
             url: new URL('http://www.articlearchive.com/article0'),
@@ -18,7 +16,7 @@ export async function listBookmarks() {
             tags: []
         },
         {
-            id: "1",
+            bookmarkId: "1",
             articleName: "article1 - articlearchive",
             path: 'http://www.articlearchive.com/article1',
             url: new URL('http://www.articlearchive.com/article1'),
@@ -26,7 +24,7 @@ export async function listBookmarks() {
             tags: []
         },
         {
-            id: "2",
+            bookmarkId: "2",
             articleName: "article2 - articlearchive",
             path: 'http://www.articlearchive.com/article2',
             url: new URL('http://www.articlearchive.com/article2'),

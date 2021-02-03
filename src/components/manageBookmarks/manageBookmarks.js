@@ -1,6 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Headline, Appbar } from 'react-native-paper'
+import { StyleSheet, View } from 'react-native';
+import { Appbar } from 'react-native-paper'
 import DataGrid from './dataGrid/dataGrid';
 import AlertBar from '../alertBar/alertBar';
 import { deleteBookmark, listBookmarks } from '../../utils/storage';
@@ -96,7 +96,7 @@ export default function ManageBookmarks() {
     }
 
     return (
-        <View>
+        <View style={styles.root}>
             <Appbar>
                 <Appbar.Content
                     title="Manage Bookmarks"
@@ -128,3 +128,9 @@ export default function ManageBookmarks() {
         </View>
     );
 }
+
+const styles= StyleSheet.create({
+    root: {
+        width: '97%'
+    }
+});

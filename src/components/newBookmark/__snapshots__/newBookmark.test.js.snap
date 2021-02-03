@@ -7,7 +7,9 @@ exports[`New Bookmark renders correctly 1`] = `
       "alignItems": "center",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
+      "justifyContent": "flex-start",
+      "maxHeight": "50%",
+      "maxWidth": "97%",
     }
   }
 >
@@ -62,6 +64,7 @@ exports[`New Bookmark renders correctly 1`] = `
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "center",
+        "maxWidth": "90%",
       }
     }
   >

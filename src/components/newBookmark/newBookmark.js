@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBookmark } from '../../utils/storage';
 import { Button, Subheading, Divider, TextInput } from 'react-native-paper';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import AlertBar from '../alertBar/alertBar';
 
 const columnGrid = {
@@ -44,10 +44,10 @@ export default function NewBookmark() {
     }
     
     return (
-        <View style={columnGrid}>
+        <View style={styles.columnGrid}>
             <Subheading>New Bookmark</Subheading>
             <Divider />
-            <View style={rowGrid}>
+            <View style={styles.rowGrid}>
                 <TextInput
                     testID="url"
                     placeholder="Add url to article you wish to bookmark"
@@ -69,3 +69,21 @@ export default function NewBookmark() {
         </View>
     )
 }
+
+const styles= StyleSheet.create({
+    columnGrid: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        maxWidth: '97%',
+        maxHeight: '50%'
+    },
+    rowGrid: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        maxWidth: '90%'
+    }
+})

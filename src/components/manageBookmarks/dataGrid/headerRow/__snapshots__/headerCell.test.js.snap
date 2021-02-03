@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderCell renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "alignContent": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "paddingVertical": 12,
+      },
+      undefined,
+      Object {
+        "width": 25,
+      },
+    ]
+  }
+  testID="columnId"
+>
+  <Text
+    numberOfLines={1}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+          "textAlign": "left",
+        },
+        Array [
+          Object {
+            "alignItems": "center",
+            "fontSize": 12,
+            "fontWeight": "500",
+            "height": 24,
+            "lineHeight": 24,
+          },
+          Object {
+            "color": "rgba(0, 0, 0, 0.6)",
+          },
+        ],
+      ]
+    }
+  >
+    Column Name
+  </Text>
+</View>
+`;

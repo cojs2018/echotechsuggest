@@ -1,47 +1,11 @@
 import React from 'react';
-import { DataTable, Checkbox } from 'react-native-paper';
+import { DataTable, Headline } from 'react-native-paper';
 import PropTypes from 'prop-types';
-
-const arrayToRows = (rows, onSelectionChange) => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleCheck = (rowSelected) => {
-        if(!checked) {
-            onSelectionChange(rowSelected);
-            setChecked(true);
-        }
-        else {
-            setChecked(false);
-        }
-    }
-
-    return (rows.map(row => (
-        <DataTable.Row>
-            <DataTable.Cell>
-                <Checkbox 
-                    status={checked ? 'checked' : 'unchecked'}
-                    onPress={handleCheck}
-                />
-            </DataTable.Cell>
-        </DataTable.Row>
-    )))
-}
-
-const objectToHeaders = (columns) => {
-    return (
-        <DataTable.Header>
-            <DataTable.Title />
-            {columns.map(column => (
-                <DataTable.Title>
-                    {column.headerName}
-                </DataTable.Title>
-            ))}
-        </DataTable.Header>
-    )
-}
+import { View, Image } from 'react-native';
+import HeaderRow from './headerRow/headerRow';
+import Row from './rows/row';
 
 export default function DataGrid(props) {
-
     const {
         columns,
         rows,
@@ -56,21 +20,31 @@ export default function DataGrid(props) {
 
     const label = `${pageFrom + 1}-${pageTo} of ${rows.length}`;
     const handlePageChange = (pageNumber) => setPage(pageNumber);
-
-    const headers = objectToHeaders(columns);
-    const rowSet = arrayToRows(rows, onSelectionChange);
     
     return (
-        <DataTable >
-            {headers}
-            {rowSet}
-            <DataTable.Pagination
-                page={page}
-                numberOfPages={numberOfPages}
-                onPageChange={handlePageChange}
-                label={label}
-            />
-        </DataTable>
+        columns.length > 0 ? (
+            <DataTable >
+                <HeaderRow {...columns} />
+                {rows.map((rowData, i) => {
+                    <Row 
+                        rowId={i}
+                        rowData={rowData}
+                        onChecked={onSelectionChange}
+                    />
+                })}
+                <DataTable.Pagination
+                    page={page}
+                    numberOfPages={numberOfPages}
+                    onPageChange={handlePageChange}
+                    label={label}
+                />
+            </DataTable>
+        ) : (
+            <View>
+                <Image source={require('../../../images/noBookmarks.png')} />
+                <Headline>No boookmarks could be found in database.</Headline>
+            </View>
+        )
     );
 }
 
@@ -85,7 +59,12 @@ DataGrid.propTypes = {
         width: PropTypes.number.isRequired
     })).isRequired,
     rows: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        bookmarkId: PropTypes.string.isRequired,
+        articleName: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired,
+        url: PropTypes.instanceOf(URL).isRequired,
+        createdAt: PropTypes.string.isRequired,
+        tags: PropTypes.arrayOf(PropTypes.string),
     })).isRequired,
     pageSize: PropTypes.number,
     onSelectionChange: PropTypes.func.isRequired,

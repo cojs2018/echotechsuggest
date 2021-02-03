@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Manage Bookmark renders correctly 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "width": "97%",
+    }
+  }
+>
   <View
     style={
       Object {
