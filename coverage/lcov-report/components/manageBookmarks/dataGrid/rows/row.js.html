@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -110,12 +110,7 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,6 +142,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,20 +156,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,14 +168,13 @@ import { DataTable } from 'react-native-paper';
 import PropTypes from 'prop-types';
 &nbsp;
 import Cell from '../cells/cell';
-import CheckboxCell from '../cells/checkboxCell';
 import ChipCell from '../cells/chipCell';
+import { StyleSheet } from 'react-native';
 &nbsp;
 export default function Row(props) {
     const {
         rowId,
         rowData,
-        onChecked
     } = props;
 &nbsp;
     const {
@@ -196,15 +187,8 @@ export default function Row(props) {
     } = rowData;
 &nbsp;
     return (
-        &lt;DataTable.Row&gt;
-            &lt;CheckboxCell
-                rowId={rowId}
-                onChecked={onChecked}
-            /&gt;
-            &lt;Cell value={bookmarkId} /&gt;
+        &lt;DataTable.Row style={styles.rowStyle}&gt;
             &lt;Cell value={articleName} /&gt;
-            &lt;Cell value={path} /&gt;
-            &lt;Cell value={url.toString()} /&gt;
             &lt;Cell value={createdAt} /&gt;
             &lt;ChipCell values={tags} /&gt;
         &lt;/DataTable.Row&gt;
@@ -223,19 +207,23 @@ Row.propTypes = {
         bookmarkId: PropTypes.string.isRequired,
         articleName: PropTypes.string.isRequired,
         path: PropTypes.string.isRequired,
-        url: PropTypes.instanceOf(URL).isRequired,
         createdAt: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string),
     }).isRequired,
-    onChecked: PropTypes.func.isRequired,
-}</pre></td></tr></table></pre>
+}
+&nbsp;
+const styles = StyleSheet.create({
+    rowStyle: {
+        height: 1500,
+    }
+})</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Feb 03 2021 15:40:53 GMT+0000 (Greenwich Mean Time)
+                at Thu Feb 11 2021 11:13:59 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

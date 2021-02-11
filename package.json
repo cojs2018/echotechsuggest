@@ -29,6 +29,7 @@
     "jsdom": "^15.2.1",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-dom": "^16.13.1",
+    "react-native-loading-view": "^1.0.1",
     "react-native-paper": "^4.7.1",
     "react-native-vector-icons": "^8.0.0",
     "react-test-renderer": "16.13.1"

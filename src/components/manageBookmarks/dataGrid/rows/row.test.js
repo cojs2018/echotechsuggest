@@ -3,17 +3,14 @@ import { View } from 'react-native';
 import render from 'react-test-renderer';
 
 jest.mock('../cells/cell');
-jest.mock('../cells/checkboxCell');
 jest.mock('../cells/chipCell');
 
 import Cell from '../cells/cell';
-import CheckboxCell from '../cells/checkboxCell';
 import ChipCell from '../cells/chipCell';
 
 import Row from './row';
 
 Cell.mockImplementation(({ value }) => <View>{value}</View>)
-CheckboxCell.mockReturnValue(<View>[]</View>)
 ChipCell.mockReturnValue(<View>''</View>)
 
 describe('Row', () => {

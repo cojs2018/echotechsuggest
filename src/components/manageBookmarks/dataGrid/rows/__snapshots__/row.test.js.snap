@@ -24,7 +24,9 @@ exports[`Row renders correctly 1`] = `
         Object {
           "borderBottomColor": "rgba(0, 0, 0, 0.12)",
         },
-        undefined,
+        Object {
+          "height": 1500,
+        },
       ],
     ]
   }
@@ -38,22 +40,10 @@ exports[`Row renders correctly 1`] = `
     }
   >
     <View>
-      []
-    </View>
-    <View>
-      2
-    </View>
-    <View>
       article2 - articlearchive
     </View>
     <View>
-      http://www.articlearchive.com/article2
-    </View>
-    <View>
-      http://www.articlearchive.com/article2
-    </View>
-    <View>
-      Wed, 03 Feb 2021 15:40:52 GMT
+      Thu, 11 Feb 2021 11:13:59 GMT
     </View>
     <View>
       ''

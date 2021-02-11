@@ -3,14 +3,13 @@ import { DataTable } from 'react-native-paper';
 import PropTypes from 'prop-types';
 
 import Cell from '../cells/cell';
-import CheckboxCell from '../cells/checkboxCell';
 import ChipCell from '../cells/chipCell';
+import { StyleSheet } from 'react-native';
 
 export default function Row(props) {
     const {
         rowId,
         rowData,
-        onChecked
     } = props;
 
     const {
@@ -23,15 +22,8 @@ export default function Row(props) {
     } = rowData;
 
     return (
-        <DataTable.Row>
-            <CheckboxCell
-                rowId={rowId}
-                onChecked={onChecked}
-            />
-            <Cell value={bookmarkId} />
+        <DataTable.Row style={styles.rowStyle}>
             <Cell value={articleName} />
-            <Cell value={path} />
-            <Cell value={url.toString()} />
             <Cell value={createdAt} />
             <ChipCell values={tags} />
         </DataTable.Row>
@@ -50,9 +42,13 @@ Row.propTypes = {
         bookmarkId: PropTypes.string.isRequired,
         articleName: PropTypes.string.isRequired,
         path: PropTypes.string.isRequired,
-        url: PropTypes.instanceOf(URL).isRequired,
         createdAt: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string),
     }).isRequired,
-    onChecked: PropTypes.func.isRequired,
 }
+
+const styles = StyleSheet.create({
+    rowStyle: {
+        height: 1500,
+    }
+})

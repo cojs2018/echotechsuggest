@@ -31,7 +31,6 @@ export default function AlertBar(props) {
 
 AlertBar.propTypes = {
     visible: PropTypes.bool.isRequired,
-    setVisible: PropTypes.func.isRequired,
     severity: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired
 }

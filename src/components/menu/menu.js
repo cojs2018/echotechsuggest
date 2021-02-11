@@ -3,11 +3,13 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Title, FAB, Switch } from 'react-native-paper';
 import NewBookmark from '../newBookmark/newBookmark';
 import ManageBookmarks from '../manageBookmarks/manageBookmarks';
+import ViewBookmark from '../viewBookmark/viewBookmark';
 
 
 export default function Menu({ switchValue, handleSwitch }) {
     
     const [page, setPage] = React.useState(0);
+    const [bookmarkId, setBookmarkId] = React.useState('');
 
     const handleNewBookmark = () => {
         setPage(1);
@@ -67,6 +69,13 @@ export default function Menu({ switchValue, handleSwitch }) {
                         icon="menu" 
                         onPress={handleMenu} 
                     />
+                </View>
+            )
+        }
+        else if (page === 3 && bookmarkId !== '') {
+            return (
+                <View>
+                    <ViewBookmark bookmarkId={bookmarkId} setPage={setPage} />
                 </View>
             )
         }

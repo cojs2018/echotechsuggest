@@ -65,7 +65,7 @@ exports[`HeaderRows renders correctly 1`] = `
         ]
       }
     >
-       
+      Article
     </Text>
   </View>
   <View
@@ -87,228 +87,9 @@ exports[`HeaderRows renders correctly 1`] = `
           "paddingVertical": 12,
         },
         undefined,
-        Object {
-          "width": 10,
-        },
-      ]
-    }
-    testID="bookmarkId"
-  >
-    <Text
-      numberOfLines={1}
-      style={
-        Array [
-          Object {
-            "color": "#000000",
-            "fontFamily": "System",
-            "fontWeight": "400",
-            "textAlign": "left",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "fontSize": 12,
-              "fontWeight": "500",
-              "height": 24,
-              "lineHeight": 24,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, 0.6)",
-            },
-          ],
-        ]
-      }
-    >
-      ID
-    </Text>
-  </View>
-  <View
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "alignContent": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "paddingVertical": 12,
-        },
         undefined,
-        Object {
-          "width": 20,
-        },
       ]
     }
-    testID="articleName"
-  >
-    <Text
-      numberOfLines={1}
-      style={
-        Array [
-          Object {
-            "color": "#000000",
-            "fontFamily": "System",
-            "fontWeight": "400",
-            "textAlign": "left",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "fontSize": 12,
-              "fontWeight": "500",
-              "height": 24,
-              "lineHeight": 24,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, 0.6)",
-            },
-          ],
-        ]
-      }
-    >
-      Article Name
-    </Text>
-  </View>
-  <View
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "alignContent": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "paddingVertical": 12,
-        },
-        undefined,
-        Object {
-          "width": 50,
-        },
-      ]
-    }
-    testID="path"
-  >
-    <Text
-      numberOfLines={1}
-      style={
-        Array [
-          Object {
-            "color": "#000000",
-            "fontFamily": "System",
-            "fontWeight": "400",
-            "textAlign": "left",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "fontSize": 12,
-              "fontWeight": "500",
-              "height": 24,
-              "lineHeight": 24,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, 0.6)",
-            },
-          ],
-        ]
-      }
-    >
-      Path
-    </Text>
-  </View>
-  <View
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "alignContent": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "paddingVertical": 12,
-        },
-        undefined,
-        Object {
-          "width": 50,
-        },
-      ]
-    }
-    testID="url"
-  >
-    <Text
-      numberOfLines={1}
-      style={
-        Array [
-          Object {
-            "color": "#000000",
-            "fontFamily": "System",
-            "fontWeight": "400",
-            "textAlign": "left",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "fontSize": 12,
-              "fontWeight": "500",
-              "height": 24,
-              "lineHeight": 24,
-            },
-            Object {
-              "color": "rgba(0, 0, 0, 0.6)",
-            },
-          ],
-        ]
-      }
-    >
-      URL
-    </Text>
-  </View>
-  <View
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "alignContent": "center",
-          "flex": 1,
-          "flexDirection": "row",
-          "paddingVertical": 12,
-        },
-        undefined,
-        Object {
-          "width": 20,
-        },
-      ]
-    }
-    testID="createdAt"
   >
     <Text
       numberOfLines={1}
@@ -357,12 +138,9 @@ exports[`HeaderRows renders correctly 1`] = `
           "paddingVertical": 12,
         },
         undefined,
-        Object {
-          "width": 100,
-        },
+        undefined,
       ]
     }
-    testID="tags"
   >
     <Text
       numberOfLines={1}
