@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Appbar } from 'react-native-paper'
 import DataGrid from './dataGrid/dataGrid';
-import AlertBar from '../alertBar/alertBar';
-import { deleteBookmark, listBookmarks } from '../../utils/storage';
 
 export default function ManageBookmarks() {
     return (
@@ -11,11 +9,6 @@ export default function ManageBookmarks() {
             <Appbar>
                 <Appbar.Content
                     title="Manage Bookmarks"
-                />
-                <Appbar.Action
-                    testID="refresh"
-                    icon="refresh"
-                    onPress={handleRefresh}
                 />
             </Appbar>
             <DataGrid />

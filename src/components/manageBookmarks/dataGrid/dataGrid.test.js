@@ -1,6 +1,5 @@
 jest.mock('../../../utils/storage')
 
-import { TestScheduler } from 'jest';
 import React from 'react';
 import render from 'react-test-renderer';
 import { listBookmarks } from '../../../utils/storage';
