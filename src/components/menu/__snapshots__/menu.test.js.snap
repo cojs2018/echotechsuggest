@@ -1,104 +1,385 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu renders correctly 1`] = `
-<div
-  className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+<View
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
 >
-  <div
-    className="MuiGrid-root MuiGrid-item"
+  <RCTSwitch
+    accessibilityRole="switch"
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onTintColor="#03dac4"
+    style={
+      Object {
+        "height": 31,
+        "width": 51,
+      }
+    }
+    tintColor=""
+    value={false}
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "column",
+        "height": "100%",
+        "justifyContent": "space-around",
+        "width": "100%",
+      }
+    }
   >
-    <h1
-      className="MuiTypography-root MuiTypography-h1"
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontWeight": "500",
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            },
+            Array [
+              Object {
+                "fontSize": 20,
+                "letterSpacing": 0.15,
+                "lineHeight": 30,
+                "marginVertical": 2,
+              },
+              undefined,
+            ],
+          ],
+        ]
+      }
     >
       Echo-Tech-Suggest
-    </h1>
-  </div>
-  <div
-    className="MuiGrid-root MuiGrid-item"
-  >
-    <div>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text"
-        disabled={false}
-        id="create"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "height": "90%",
+          "justifyContent": "space-around",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#6200ee",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 2,
+            "maxWidth": 300,
+            "minWidth": 300,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0.75,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 1.5,
+          }
+        }
       >
-        <span
-          className="MuiButton-label"
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+          testID="create"
         >
-          <h3
-            className="MuiTypography-root MuiTypography-h3"
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
           >
-            <svg
-              aria-hidden={true}
-              className="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <View
+              style={
+                Object {
+                  "marginLeft": 12,
+                  "marginRight": -4,
+                }
+              }
             >
-              <path
-                d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-              />
-            </svg>
-            Create new bookmark
-          </h3>
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text"
-        disabled={false}
-        id="manage"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+              <Text
+                accessibilityElementsHidden={true}
+                allowFontScaling={false}
+                importantForAccessibility="no-hide-descendants"
+                pointerEvents="none"
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 16,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 16,
+                        "transform": Array [
+                          Object {
+                            "scaleX": 1,
+                          },
+                        ],
+                      },
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰃅
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Create new bookmark
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#6200ee",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 2,
+            "minWidth": 64,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0.75,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 1.5,
+          }
+        }
+        styles={
+          Object {
+            "maxWidth": 300,
+            "minWidth": 300,
+          }
+        }
       >
-        <span
-          className="MuiButton-label"
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+          testID="manage"
         >
-          <h3
-            className="MuiTypography-root MuiTypography-h3"
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
           >
-            <svg
-              aria-hidden={true}
-              className="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <View
+              style={
+                Object {
+                  "marginLeft": 12,
+                  "marginRight": -4,
+                }
+              }
             >
-              <path
-                d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"
-              />
-              <path
-                d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 10l-2.5-1.5L15 12V4h5v8z"
-              />
-            </svg>
-            Manage bookmarks
-          </h3>
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
+              <Text
+                accessibilityElementsHidden={true}
+                allowFontScaling={false}
+                importantForAccessibility="no-hide-descendants"
+                pointerEvents="none"
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 16,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 16,
+                        "transform": Array [
+                          Object {
+                            "scaleX": 1,
+                          },
+                        ],
+                      },
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰮆
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Manage bookmarks
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
 `;

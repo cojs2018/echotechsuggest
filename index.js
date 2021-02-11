@@ -1,6 +1,9 @@
-import React from 'react';
-import Menu from './src/components/menu';
+/**
+ * @format
+ */
 
-export default function EchoTechSuggest() {
-    return (<Menu />)
-}
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
+
+AppRegistry.registerComponent(appName, () => App);

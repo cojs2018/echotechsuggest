@@ -1,0 +1,401 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataGrid renders correctly 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "borderBottomWidth": 1,
+            "flexDirection": "row",
+            "height": 48,
+            "paddingHorizontal": 16,
+          },
+          Object {
+            "borderBottomColor": "rgba(0, 0, 0, 0.12)",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "paddingVertical": 12,
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "height": 24,
+                  "lineHeight": 24,
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.6)",
+                },
+              ],
+            ]
+          }
+        >
+          Article
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "paddingVertical": 12,
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "height": 24,
+                  "lineHeight": 24,
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.6)",
+                },
+              ],
+            ]
+          }
+        >
+          Created At
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "paddingVertical": 12,
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "height": 24,
+                  "lineHeight": 24,
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.6)",
+                },
+              ],
+            ]
+          }
+        >
+          Tags
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+            "paddingLeft": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "textAlign": "left",
+            },
+            Array [
+              Object {
+                "fontSize": 12,
+                "marginRight": 44,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, 0.6)",
+              },
+            ],
+          ]
+        }
+      >
+        1-10 of 0
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 6,
+            "left": 6,
+            "right": 6,
+            "top": 6,
+          }
+        }
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "margin": 6,
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 18,
+                "height": 36,
+                "width": 36,
+              },
+              Object {
+                "opacity": 0.32,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View>
+          <Text
+            accessibilityElementsHidden={true}
+            allowFontScaling={false}
+            importantForAccessibility="no-hide-descendants"
+            pointerEvents="none"
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 24,
+                },
+                Array [
+                  Object {
+                    "lineHeight": 24,
+                    "transform": Array [
+                      Object {
+                        "scaleX": 1,
+                      },
+                    ],
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ],
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            󰅁
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 6,
+            "left": 6,
+            "right": 6,
+            "top": 6,
+          }
+        }
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "margin": 6,
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 18,
+                "height": 36,
+                "width": 36,
+              },
+              Object {
+                "opacity": 0.32,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View>
+          <Text
+            accessibilityElementsHidden={true}
+            allowFontScaling={false}
+            importantForAccessibility="no-hide-descendants"
+            pointerEvents="none"
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 24,
+                },
+                Array [
+                  Object {
+                    "lineHeight": 24,
+                    "transform": Array [
+                      Object {
+                        "scaleX": 1,
+                      },
+                    ],
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                ],
+                Object {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            󰅂
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

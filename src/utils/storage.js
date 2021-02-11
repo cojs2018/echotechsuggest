@@ -1,80 +1,136 @@
-import { writeFile } from 'fs';
+import { bookmarksAPI } from './constants';
 
 export async function createBookmark(bookmarkUrl) {
-    try {
-        let bookmarkUrlList = require('../../bookmarkUrls.json');
-
-        let bookmarkLocation = bookmarkUrl;
-        if(!bookmarkLocation.includes('http')) {
-            bookmarkLocation = `http://${bookmarkLocation}`;
-        }
-
-        const newUrlData = new URL(bookmarkLocation);
-        const articleName = `${newUrlData.pathname} - ${newUrlData.hostname}`;
-
-        const bookmarkJSON = {
-            articleName,
-            path: bookmarkLocation,
-            url: newUrlData,
-            createdAt: (new Date()).toUTCString(),
-        }
-
-        bookmarkUrlList.push(bookmarkJSON);
-
-        writeFile(
-            '../../bookmarkUrls.json',
-            JSON.stringify(bookmarkUrlList, ' ', 4)
-        )
-
-        return {
-            status: 200,
-            message: 'Bookmark created successfully!'
-        }
+    const bookmarkBody = {
+        path: bookmarkUrl,
+        url: new URL(bookmarkUrl),
     }
-    catch (error) {
-        throw new Error(JSON.stringify({ 
-            status: 500,
-            message: 'Internal service error: Could not create bookmark!' 
-        }));
-    }
-}
+    bookmarkBody["articleName"] = `${bookmarkBody.url.pathname} - ${bookmarkBody.url.hostname}`;
+
+    const request = {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+            "Content-Type": 'application/json',
+        },
+        body: JSON.stringify(bookmarkBody),
+    };
+
+    return fetch(bookmarksAPI, request)
+        .then(onfulfilled => {
+            return onfulfilled.json();
+        })
+        .catch(reasonForError => {
+            throw new Error(reasonForError);
+        });
+};
 
 export async function listBookmarks() {
-    const bookmarkUrlList = require('../../bookmarkUrls.json');
-    return bookmarkUrlList;
+    const request = {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+            "Content-Type": 'application/json',
+        },
+    };
+
+    return fetch(bookmarksAPI, request)
+        .then(onfulfilled => {
+            return onfulfilled.json()
+                .then(response => response.Items);
+        })
+        .catch(reasonForError => {
+            throw new Error(reasonForError);
+        });
 }
 
-export async function deleteBookmark(bookmarkName) {
-    try {
-        let bookmarkUrlList = require('../../bookmarkUrls.json');
-        
-        if(!bookmarkUrlList[bookmarkName]) {
-            return {
-                status: 200,
+export async function getBookmark(bookmarkId) {
+    const bookmarkBody = {
+        params: {
+            path: {
+                bookmarkId,
             }
         }
+    }
 
-        const bookmarkIndex = bookmarkUrlList
-            .findIndex(bookmark => {
-                bookmark.articleName = bookmarkName;
-            })
+    const request = {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+            "Content-Type": 'application/json',
+        },
+        body: JSON.stringify(bookmarkBody),
+    };
 
-        bookmarkUrlList.splice();
+    return fetch(`${bookmarksAPI}/bookmarks`, request)
+        .then(onfulfilled => {
+            return onfulfilled.json()
+                .then(response => response.Item);
+        })
+        .catch(reasonForError => {
+            throw new Error(reasonForError);
+        });
+}
 
-        writeFile(
-            '../../bookmarkUrls.json',
-            JSON.stringify(bookmarkUrlList, ' ', 4)
-        )
-
-        return {
-            status: 200,
-            message: 'Bookmark deleted successfully!'
+export async function updateBookmark(bookmarkId, updatedBookmark) {
+    const bookmarkBody = {
+        params: {
+            path: {
+                bookmarkId,
+            }
+        },
+        body: {
+            ...updatedBookmark,
         }
     }
-    catch (error) {
-        throw new Error(JSON.stringify({ 
-            status: 500,
-            message: 'Internal service error: Could not delete bookmark!' 
-        }));
-    }
+
+    const request = {
+        method: 'PATCH',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+            "Content-Type": 'application/json',
+        },
+        body: JSON.stringify(bookmarkBody),
+    };
+
+    return fetch(`${bookmarksAPI}/bookmarks`, request)
+        .then(onfulfilled => {
+            return onfulfilled.json()
+        })
+        .catch(reasonForError => {
+            throw new Error(reasonForError);
+        });
 }
+
+export async function deleteBookmark(bookmarkId) {
+    const bookmarkBody = {
+        params: {
+            path: {
+                bookmarkId,
+            }
+        }
+    }
+
+    const request = {
+        method: 'DELETE',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+            "Content-Type": 'application/json',
+        },
+        body: JSON.stringify(bookmarkBody),
+    };
+
+    return fetch(`${bookmarksAPI}/bookmarks`, request)
+        .then(onfulfilled => {
+            return onfulfilled.json();
+        })
+        .catch(reasonForError => {
+            throw new Error(reasonForError);
+        });
+}
+

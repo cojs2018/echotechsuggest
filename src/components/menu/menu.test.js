@@ -22,7 +22,7 @@ describe('Menu', () => {
     })
 });
 
-test('Page handlers', async () => {
+test('Menu buttons', async () => {
     let page = 0;
     const setPage = jest.fn(async (newPage) => page = newPage);
 
@@ -31,14 +31,24 @@ test('Page handlers', async () => {
 
     const wrapper = mount(<Menu />);
 
-    const createButton = wrapper.find('button').find('#create').at(0);
-    createButton.simulate('click');
+    const createButton = wrapper
+        .find('Button')
+        .findWhere(button => button.prop('testID') === "create")
+        .first();
+
+    createButton.props().onPress();
+    wrapper.update();
 
     await new Promise(resolve => setImmediate(resolve))
     expect(page).toStrictEqual(1);
 
-    const manageButton = wrapper.find('button').find('#manage').at(0);
-    manageButton.simulate('click');
+    const manageButton = wrapper
+        .find('Button')
+        .findWhere(button => button.prop('testID') === "manage")
+        .first();
+
+    manageButton.props().onPress();
+    wrapper.update();
 
     await new Promise(resolve => setImmediate(resolve))
     expect(page).toStrictEqual(2);

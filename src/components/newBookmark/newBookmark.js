@@ -1,16 +1,32 @@
-import { Button, Grid, Typography, TextField } from '@material-ui/core';
 import React from 'react';
 import { createBookmark } from '../../utils/storage';
-import { Alert } from '@material-ui/lab';
+import { Button, Subheading, Divider, TextInput } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import AlertBar from '../alertBar/alertBar';
+
+const columnGrid = {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+};
+
+const rowGrid = {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+};
 
 export default function NewBookmark() {
 
     const [bookmarkUrl, setBookmarkUrl] = React.useState('');
     const [message, setMessage] = React.useState('');
     const [error, setError] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
 
-    const handleURLChange = (event) => {
-        setBookmarkUrl(event.target.value);
+    const handleURLChange = (text) => {
+        setBookmarkUrl(text);
     }
 
     const handleSubmit = async () => {
@@ -18,43 +34,56 @@ export default function NewBookmark() {
             .then(() => {
                 setError(false);
                 setMessage('Url has now been stored, please await your results.');
+                setVisible(true);
             })
             .catch((errorThrown) => {
                 setError(true);
                 setMessage(errorThrown.message);
+                setVisible(true);
             })
     }
     
     return (
-        <Grid container direction="column" justify="center" alignItems="center" >
-            <Grid item>
-                <Typography variant="h2">
-                    New Bookmark
-                </Typography>
-            </Grid>
-            <Grid item>
-                <Grid container direction="row" justify="center" alignItems="center">
-                    <Grid item>
-                        <TextField
-                            id="url"
-                            placeholder="Add url to article you wish to bookmark"
-                            onChange={handleURLChange}
-                        />
-                    </Grid>
-                    <Grid item>
-                        <Button id="submit" variant="contained" onClick={handleSubmit}>
-                            Submit
-                        </Button>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid item>
-                {message.length > 0 ? (
-                    <Alert severity={error ? "error" : "info"}>
-                        {message}
-                    </Alert>
-                ) : (<div/>)}
-            </Grid>
-        </Grid>
+        <View style={styles.columnGrid}>
+            <Subheading>New Bookmark</Subheading>
+            <Divider />
+            <View style={styles.rowGrid}>
+                <TextInput
+                    testID="url"
+                    placeholder="Add url to article you wish to bookmark"
+                    onChangeText={handleURLChange}
+                />
+                <Button 
+                    mode="contained" 
+                    onPress={handleSubmit}
+                    testID="send">
+                    Submit
+                </Button>
+            </View>
+            <AlertBar
+                visible={visible}
+                setVisible={setVisible}
+                severity={error ? "error" : "success"}
+                message={message}
+            />
+        </View>
     )
 }
+
+const styles= StyleSheet.create({
+    columnGrid: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        maxWidth: '97%',
+        maxHeight: '50%'
+    },
+    rowGrid: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        maxWidth: '90%'
+    }
+})

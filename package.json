@@ -2,37 +2,41 @@
   "name": "echotechsuggest",
   "version": "1.0.0",
   "description": "Application to store urls of websites bookmarked by the user. The user can make a request to alexa to open the app and suggest latest technologies based on user preferences",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "jest --coverage -u"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest --coverage -u",
+    "lint": "eslint ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cojs2018/echotechsuggest.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cojs2018/echotechsuggest/issues"
-  },
-  "homepage": "https://github.com/cojs2018/echotechsuggest#readme",
   "dependencies": {
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/data-grid": "^4.0.0-alpha.17",
-    "fs": "^0.0.1-security",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "prop-types": "^15.7.2",
+    "react": "16.13.1",
+    "react-native": "0.63.4"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "babel-jest": "^26.6.3",
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
-    "jest": "^26.6.3",
-    "react-test-renderer": "^16.14.0",
-    "regenerator-runtime": "^0.13.7"
+    "enzyme-react-16-adapter-setup": "^0.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "jest-enzyme": "^7.1.2",
+    "jsdom": "^15.2.1",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-dom": "^16.13.1",
+    "react-native-loading-view": "^1.0.1",
+    "react-native-paper": "^4.7.1",
+    "react-native-vector-icons": "^8.0.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "presets": [
+      "react-native"
+    ]
   }
 }

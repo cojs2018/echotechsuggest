@@ -20,15 +20,18 @@ test('Add url and submit, no error', async () => {
     let bookmarkUrl = '';
     let message = '';
     let error = false;
+    let visible = false;
 
     const setBookmarkUrl = jest.fn(async (newUrl) => bookmarkUrl = newUrl);
     const setMessage = jest.fn(async (newMessage) => message = newMessage);
     const setError = jest.fn(async (bool) => error = bool);
+    const setVisible = jest.fn(async (bool) => visible = bool);
 
     React.useState = jest.fn()
         .mockReturnValueOnce([bookmarkUrl, setBookmarkUrl])
         .mockReturnValueOnce([message, setMessage])
-        .mockReturnValueOnce([error, setError]);
+        .mockReturnValueOnce([error, setError])
+        .mockReturnValueOnce([visible, setVisible]);
 
     createBookmark.mockImplementationOnce((bookmarkURL) => new Promise((resolve, reject) => {
         resolve({
@@ -39,16 +42,23 @@ test('Add url and submit, no error', async () => {
 
     const wrapper = mount(<NewBookmark />);
 
-    const urlInput = wrapper.find('#url').find('input').at(0);
-    
-    const eventPayload = { target: { value: 'www.example.com' } };
-    urlInput.simulate('change', eventPayload);
+    const urlInput = wrapper
+        .find('TextInput')
+        .findWhere(testInput => testInput.prop('testID') === "url")
+        .first();
+
+    urlInput.props().onChangeText('www.example.com');
 
     await new Promise(resolve => setImmediate(resolve))
-    expect(bookmarkUrl).toStrictEqual(eventPayload.target.value);
+    expect(bookmarkUrl).toStrictEqual('www.example.com');
 
-    const submitButton = wrapper.find('#submit').find('button').at(0);
-    submitButton.simulate('click');
+    const submitButton = wrapper
+        .find('Button')
+        .findWhere(button => button.prop('testID') === 'send')
+        .first();
+    
+    submitButton.props().onPress();
+    wrapper.update();
 
     await new Promise(resolve => setImmediate(resolve))
     expect(message).toStrictEqual('Url has now been stored, please await your results.');
@@ -59,37 +69,44 @@ test('error', async () => {
     let bookmarkUrl = '';
     let message = '';
     let error = false;
+    let visible = false;
 
     const setBookmarkUrl = jest.fn(async (newUrl) => bookmarkUrl = newUrl);
     const setMessage = jest.fn(async (newMessage) => message = newMessage);
     const setError = jest.fn(async (bool) => error = bool);
+    const setVisible = jest.fn(async (bool) => visible = bool);
 
     React.useState = jest.fn()
         .mockReturnValueOnce([bookmarkUrl, setBookmarkUrl])
         .mockReturnValueOnce([message, setMessage])
-        .mockReturnValueOnce([error, setError]);
+        .mockReturnValueOnce([error, setError])
+        .mockReturnValueOnce([visible, setVisible]);
 
     createBookmark.mockImplementationOnce((bookmarkURL) => new Promise((resolve, reject) => {
-        reject({
-            status: 500,
-            message: 'Not a url!'
-        })
-    }))
+        reject(Error('Internal service error'));
+    }));
 
     const wrapper = mount(<NewBookmark />);
 
-    const urlInput = wrapper.find('#url').find('input').at(0);
+    const urlInput = wrapper
+        .find('TextInput')
+        .findWhere(testInput => testInput.prop('testID') === "url")
+        .first();
+
+    urlInput.props().onChangeText('wwwexamplecom');
+
+    await new Promise(resolve => setImmediate(resolve))
+    expect(bookmarkUrl).toStrictEqual('wwwexamplecom');
+
+    const submitButton = wrapper
+        .find('Button')
+        .findWhere(button => button.prop('testID') === 'send')
+        .first();
     
-    const eventPayload = { target: { value: 'wwwexamplecom' } };
-    urlInput.simulate('change', eventPayload);
+    submitButton.props().onPress();
+    wrapper.update();
 
     await new Promise(resolve => setImmediate(resolve))
-    expect(bookmarkUrl).toStrictEqual(eventPayload.target.value);
-
-    const submitButton = wrapper.find('#submit').find('button').at(0);
-    submitButton.simulate('click');
-
-    await new Promise(resolve => setImmediate(resolve))
-    expect(message).toBeDefined();
+    expect(message).toStrictEqual('Internal service error');
     expect(error).toBeTruthy();
-})
+});

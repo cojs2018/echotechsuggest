@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      false,
+      Array [
+        Object {
+          "borderBottomWidth": 0.5,
+          "borderStyle": "solid",
+          "minHeight": 48,
+          "paddingHorizontal": 16,
+        },
+        Object {
+          "borderBottomColor": "rgba(0, 0, 0, 0.12)",
+        },
+        Object {
+          "height": 1500,
+        },
+      ],
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View>
+      article2 - articlearchive
+    </View>
+    <View>
+      Thu, 11 Feb 2021 11:13:59 GMT
+    </View>
+    <View>
+      ''
+    </View>
+  </View>
+</View>
+`;
