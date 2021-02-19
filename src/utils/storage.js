@@ -47,14 +47,6 @@ export async function listBookmarks() {
 }
 
 export async function getBookmark(bookmarkId) {
-    const bookmarkBody = {
-        params: {
-            path: {
-                bookmarkId,
-            }
-        }
-    }
-
     const request = {
         method: 'GET',
         mode: 'cors',
@@ -62,10 +54,9 @@ export async function getBookmark(bookmarkId) {
         headers: {
             "Content-Type": 'application/json',
         },
-        body: JSON.stringify(bookmarkBody),
     };
 
-    return fetch(`${bookmarksAPI}/bookmarks`, request)
+    return fetch(`${bookmarksAPI}/${bookmarkId}`, request)
         .then(onfulfilled => {
             return onfulfilled.json()
                 .then(response => response.Item);
@@ -97,7 +88,7 @@ export async function updateBookmark(bookmarkId, updatedBookmark) {
         body: JSON.stringify(bookmarkBody),
     };
 
-    return fetch(`${bookmarksAPI}/bookmarks`, request)
+    return fetch(`${bookmarksAPI}/${bookmarkId}`, request)
         .then(onfulfilled => {
             return onfulfilled.json()
         })
@@ -125,7 +116,7 @@ export async function deleteBookmark(bookmarkId) {
         body: JSON.stringify(bookmarkBody),
     };
 
-    return fetch(`${bookmarksAPI}/bookmarks`, request)
+    return fetch(`${bookmarksAPI}/${bookmarkId}`, request)
         .then(onfulfilled => {
             return onfulfilled.json();
         })

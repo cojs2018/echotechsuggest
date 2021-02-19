@@ -25,6 +25,7 @@ describe('Menu', () => {
 test('Menu buttons', async () => {
     let page = 0;
     const setPage = jest.fn(async (newPage) => page = newPage);
+    let bookmarkId = '';
 
     React.useState = jest.fn()
         .mockReturnValueOnce([page, setPage]);

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const stringToChip = (stringValue) => {
     return (
         <Chip>
-            {stringValue}
+            {stringValue.substring(0, 4)}
         </Chip>
     )
 }

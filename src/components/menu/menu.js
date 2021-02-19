@@ -9,7 +9,7 @@ import ViewBookmark from '../viewBookmark/viewBookmark';
 export default function Menu({ switchValue, handleSwitch }) {
     
     const [page, setPage] = React.useState(0);
-    const [bookmarkId, setBookmarkId] = React.useState('');
+    const [bookmarkIdSelected, setBookmarkIdSelected] = React.useState('');
 
     const handleNewBookmark = () => {
         setPage(1);
@@ -63,7 +63,7 @@ export default function Menu({ switchValue, handleSwitch }) {
         else if (page === 2) {
             return (
                 <View style={styles.pageStyle}>
-                    <ManageBookmarks />
+                    <ManageBookmarks setPage={setPage} bookmarkIdSelected={bookmarkIdSelected} setBookmarkIdSelected={setBookmarkIdSelected} />
                     <FAB 
                         testID="home-menu" 
                         icon="menu" 
@@ -72,10 +72,14 @@ export default function Menu({ switchValue, handleSwitch }) {
                 </View>
             )
         }
-        else if (page === 3 && bookmarkId !== '') {
+        else if (page === 3 && bookmarkIdSelected !== '') {
             return (
                 <View>
-                    <ViewBookmark bookmarkId={bookmarkId} setPage={setPage} />
+                    <ViewBookmark 
+                        bookmarkIdSelected={bookmarkIdSelected} 
+                        setPage={setPage} 
+                        dark={switchValue}
+                    />
                 </View>
             )
         }
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
     gridStyle: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         width: '100%',
         height: '100%'

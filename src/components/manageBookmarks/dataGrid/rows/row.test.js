@@ -13,6 +13,12 @@ import Row from './row';
 Cell.mockImplementation(({ value }) => <View>{value}</View>)
 ChipCell.mockReturnValue(<View>''</View>)
 
+React.useContext = jest.fn()
+    .mockReturnValueOnce({
+        setPage: jest.fn(),
+        setBookmarkId: jest.fn()
+    })
+
 describe('Row', () => {
     it('renders correctly', () => {
         const props = {

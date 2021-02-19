@@ -6,7 +6,7 @@ import Row from './rows/row';
 import { listBookmarks } from '../../../utils/storage';
 import LoadingView from 'react-native-loading-view';
 
-export default function DataGrid() {
+export default function DataGrid({ setBookmarkIdSelected }) {
     const [rows, setRows] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const [isError, setIsError] = React.useState(false);
@@ -16,6 +16,7 @@ export default function DataGrid() {
         setIsLoading(true);
         return listBookmarks()
             .then(listOfArticles => {
+                console.log(listOfArticles);
                 setRows(listOfArticles);
                 setIsLoading(false);
             })
@@ -37,6 +38,8 @@ export default function DataGrid() {
 
     const label = `${pageFrom + 1}-${pageTo} of ${rows.length}`;
     const handlePageChange = (pageNumber) => setTablePage(pageNumber);
+
+    const rowData = rows.length > 0 ? rows[0] : {bookmarkId: 'none', articleName: 'No Item', createdAt: (new Date()).toUTCString()};
     
     return (
         isLoading ? (
@@ -53,12 +56,7 @@ export default function DataGrid() {
                 ) : (
                     <DataTable >
                         <HeaderRow />
-                        {rows.map(rowData => {
-                            <Row 
-                                rowId={rowData.bookmarkId}
-                                rowData={rowData}
-                            />
-                        })}
+                        <Row rowId={rowData.bookmarkId} rowData={rowData} setBookmarkIdSelected={setBookmarkIdSelected} />
                         <DataTable.Pagination
                             page={tablePage}
                             numberOfPages={numberOfPages}

@@ -10,19 +10,20 @@ export default function Row(props) {
     const {
         rowId,
         rowData,
+        setBookmarkIdSelected
     } = props;
 
     const {
         bookmarkId,
         articleName,
-        path,
-        url,
         createdAt,
-        tags
+        tags,
     } = rowData;
 
+    const handleSelect = () => setBookmarkIdSelected(rowId);
+
     return (
-        <DataTable.Row style={styles.rowStyle}>
+        <DataTable.Row onPress={handleSelect} style={styles.rowStyle}>
             <Cell value={articleName} />
             <Cell value={createdAt} />
             <ChipCell values={tags} />
@@ -37,11 +38,10 @@ Row.defaultProps = {
 }
 
 Row.propTypes = {
-    rowId: PropTypes.number.isRequired,
+    rowId: PropTypes.string.isRequired,
     rowData: PropTypes.shape({
         bookmarkId: PropTypes.string.isRequired,
         articleName: PropTypes.string.isRequired,
-        path: PropTypes.string.isRequired,
         createdAt: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string),
     }).isRequired,
@@ -49,6 +49,6 @@ Row.propTypes = {
 
 const styles = StyleSheet.create({
     rowStyle: {
-        height: 1500,
+        
     }
 })
