@@ -45,6 +45,14 @@ export default function Menu({ switchValue, handleSwitch }) {
                     >
                         Manage bookmarks
                     </Button>
+                    <Button
+                        styles={styles.menuButton}
+                        testID="manage" 
+                        icon="account-supervisor" 
+                        mode="contained" 
+                    >
+                        My Information
+                    </Button>
                 </View>
             )
         }
@@ -113,7 +121,7 @@ const styles = StyleSheet.create({
     menuOptions: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
         width: '100%',
         height: '90%'

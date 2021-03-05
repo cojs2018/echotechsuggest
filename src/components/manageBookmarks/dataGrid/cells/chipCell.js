@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const stringToChip = (stringValue) => {
     return (
-        <Chip>
+        <Chip key={stringValue}>
             {stringValue.substring(0, 4)}
         </Chip>
     )
@@ -13,7 +13,7 @@ const stringToChip = (stringValue) => {
 export default function ChipCell(props) {
     const { values } = props;
 
-    const chipSet = values.map(text => stringToChip(text));
+    const chipSet = values.map(text => stringToChip(text.value));
 
     return (
         <DataTable.Cell>

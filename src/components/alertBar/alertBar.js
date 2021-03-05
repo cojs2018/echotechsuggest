@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Banner } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
+import { Snackbar, Button, Text } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
 
 export default function AlertBar(props) {
     const {
@@ -11,21 +11,28 @@ export default function AlertBar(props) {
         message
     } = props;
 
-    const iconName = severity === "error" ? "error" : "alert-circle-check";
+    const iconName = severity === "error" ? "alert-circle" : "alert-circle-check";
     const messageStyle = severity === "error" ? styles.errorRed : styles.successGreen;
 
+    let messageString = typeof message === 'string' ? message.toUpperCase() : JSON.stringify(message);
+
     return (
-        <Banner
-            style={messageStyle}
+        <Snackbar
+            style={styles.dialog}
             visible={visible}
-            actions={[{
+            onDismiss={() => setVisible(false)}
+            action={{
                 label: 'Close',
                 onPress: () => setVisible(false)
-            }]}
-            icon={iconName}
+            }}
         >
-                {message}
-        </Banner>
+            <View style={styles.grid}>
+                <Button 
+                    icon={iconName} 
+                    color={severity === "error" ? '#660000' : '#106124'} />
+                <Text style={messageStyle}>{messageString}</Text>
+            </View>
+        </Snackbar>
     )
 }
 
@@ -37,11 +44,18 @@ AlertBar.propTypes = {
 
 const styles = StyleSheet.create({
     errorRed: {
-        backgroundColor: '#e9967a',
-        color: '#ff0000'
+        color: '#660000',
     },
     successGreen: {
-        backgroundColor: '#98fb98',
-        color: '#008000'
+        color: '#98fb98',
+    },
+    grid: {
+        flex: 0,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    dialog: {
+        backgroundColor: '#000000',
     }
 })

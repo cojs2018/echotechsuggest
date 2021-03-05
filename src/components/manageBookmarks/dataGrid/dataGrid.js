@@ -39,7 +39,7 @@ export default function DataGrid({ setBookmarkIdSelected }) {
     const label = `${pageFrom + 1}-${pageTo} of ${rows.length}`;
     const handlePageChange = (pageNumber) => setTablePage(pageNumber);
 
-    const rowData = rows.length > 0 ? rows[0] : {bookmarkId: 'none', articleName: 'No Item', createdAt: (new Date()).toUTCString()};
+    const rowData = rows.length > 0 ? rows[0] : {bookmarkId: 'none', articleName: 'No Item', createdAt: (new Date()).toUTCString(), tags: [] };
     
     return (
         isLoading ? (

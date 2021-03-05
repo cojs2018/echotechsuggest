@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.57% </span>
+                <span class="strong">70.83% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/23</span>
+                <span class='fraction'>17/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>5/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.86% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.73% </span>
+                <span class="strong">73.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/22</span>
+                <span class='fraction'>17/23</span>
             </div>
         
             
@@ -127,9 +127,7 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,6 +147,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -171,6 +170,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,10 +182,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,7 +205,7 @@ import Row from './rows/row';
 import { listBookmarks } from '../../../utils/storage';
 import LoadingView from 'react-native-loading-view';
 &nbsp;
-export default function DataGrid() {
+export default function DataGrid({ setBookmarkIdSelected }) {
     const [rows, setRows] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const [isError, setIsError] = React.useState(false);
@@ -219,6 +215,7 @@ export default function DataGrid() {
         setIsLoading(true);
         return listBookmarks()
             .then(<span class="fstat-no" title="function not covered" >li</span>stOfArticles =&gt; {
+<span class="cstat-no" title="statement not covered" >                console.log(listOfArticles);</span>
 <span class="cstat-no" title="statement not covered" >                setRows(listOfArticles);</span>
 <span class="cstat-no" title="statement not covered" >                setIsLoading(false);</span>
             })
@@ -240,6 +237,8 @@ export default function DataGrid() {
 &nbsp;
     const label = `${pageFrom + 1}-${pageTo} of ${rows.length}`;
     const handlePageChange = <span class="fstat-no" title="function not covered" >(p</span>ageNumber) =&gt; <span class="cstat-no" title="statement not covered" >setTablePage(pageNumber);</span>
+&nbsp;
+    const rowData = rows.length &gt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >rows[0] </span>: {bookmarkId: 'none', articleName: 'No Item', createdAt: (new Date()).toUTCString(), tags: [] };
     
     return (
         isLoading ? (
@@ -256,12 +255,7 @@ export default function DataGrid() {
                 ) : (
                     &lt;DataTable &gt;
                         &lt;HeaderRow /&gt;
-                        {rows.map(<span class="fstat-no" title="function not covered" >ro</span>wData =&gt; {
-<span class="cstat-no" title="statement not covered" >                            &lt;Row </span>
-                                rowId={rowData.bookmarkId}
-                                rowData={rowData}
-                            /&gt;
-                        })}
+                        &lt;Row rowId={rowData.bookmarkId} rowData={rowData} setBookmarkIdSelected={setBookmarkIdSelected} /&gt;
                         &lt;DataTable.Pagination
                             page={tablePage}
                             numberOfPages={numberOfPages}
@@ -280,7 +274,7 @@ export default function DataGrid() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Feb 11 2021 14:14:30 GMT+0000 (Greenwich Mean Time)
+                at Fri Mar 05 2021 11:03:50 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

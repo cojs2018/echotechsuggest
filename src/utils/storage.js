@@ -1,4 +1,4 @@
-import { bookmarksAPI } from './constants';
+import { bookmarksAPI, tagsAPI } from './constants';
 
 export async function createBookmark(bookmarkUrl) {
     const bookmarkBody = {
@@ -16,6 +16,8 @@ export async function createBookmark(bookmarkUrl) {
         },
         body: JSON.stringify(bookmarkBody),
     };
+
+    console.log(request);
 
     return fetch(bookmarksAPI, request)
         .then(onfulfilled => {
@@ -73,7 +75,7 @@ export async function updateBookmark(bookmarkId, updatedBookmark) {
                 bookmarkId,
             }
         },
-        body: {
+        "body-json": {
             ...updatedBookmark,
         }
     }
@@ -125,3 +127,22 @@ export async function deleteBookmark(bookmarkId) {
         });
 }
 
+export async function listTags() {
+    const request = {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+            "Content-Type": 'application/json',
+        },
+    };
+
+    return fetch(`${tagsAPI}/`, request)
+        .then(onfulfilled => {
+            return onfulfilled.json()
+                .then(response => response.Items);
+        })
+        .catch(reasonForError => {
+            throw new Error(reasonForError);
+        });
+}

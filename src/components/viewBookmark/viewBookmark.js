@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import LoadingView from 'react-native-loading-view';
 import { getBookmark, deleteBookmark } from '../../utils/storage';
-import { Appbar, Chip, Text, IconButton, TextInput } from 'react-native-paper';
+import { Appbar, Text} from 'react-native-paper';
 import AlertBar from '../alertBar/alertBar';
+import TagList from './tagList/tagList';
 
 export default function ViewBookmark ({
     bookmarkIdSelected,
@@ -26,9 +27,6 @@ export default function ViewBookmark ({
         message: ''
     });
     const [visible, setVisible] = React.useState(false);
-    const [tags, setTags] = React.useState([]);
-
-    const [editTags, setEditTags] = React.useState(false);
 
     const handleBookmarkDetails = async () => {
         setIsLoading(true);
@@ -42,16 +40,6 @@ export default function ViewBookmark ({
     React.useEffect(() => {
         handleBookmarkDetails();
     }, []);
-
-    const handleEdit = () => {
-        setTags(details.tags);
-        setEditTags(true);
-    }
-
-    const handleCancel = () => {
-        setTags([]);
-        setEditTags(false);
-    }
 
     const handleDelete = async () => {
         return deleteBookmark(bookmarkId)
@@ -73,44 +61,7 @@ export default function ViewBookmark ({
             });
     };
 
-    const handleRemoveTag = (tagToRemove) => {
-        setTags(tags.filter(tag => tag !== tagToRemove));
-    };
-
-    const handleNewTag = (newTag) => {
-        const newTagSet = [].concat(tags, [newTag]);
-        setTags(newTagSet);
-    }
-
-    const handleClose = () => {
-        setPage(2);
-    };
-
-    const tagOptions = editTags ? (
-        <View style={styles.updatable}>
-            <IconButton
-                icon="cancel"
-                onPress={handleCancel}
-            />
-            <IconButton
-                icon="content-save"
-            />
-        </View>
-    ) : (
-        <IconButton
-            icon="circle-edit-outline"
-            onPress={handleEdit}
-        />
-    );
-
-    const tagRender = editTags ? (
-        <View>
-            {tags.map(tag => <Chip onClose={handleRemoveTag(tag)}>{tag}</Chip>)}
-            <TextInput onSubmitEditing={synth => handleNewTag(synth.nativeEvent.text)} />
-        </View>
-    ) : (
-        details.tags.map(tag => <Chip>{tag}</Chip>)
-    )
+    const handleClose = () => setPage(2);
 
     return (
         <View>
@@ -151,11 +102,12 @@ export default function ViewBookmark ({
                         </Text>
                     </View>
                     <View>
-                        <View style={styles.updatable}>
-                            <Text style={styles.section}>Tags</Text>
-                            {tagOptions}
-                        </View>
-                        {tagRender}
+                        <TagList 
+                            bookmarkId={details.bookmarkId}
+                            currentTags={details.tags}
+                            setAlertMessage={setAlertMessage}
+                            setVisible={setVisible}
+                        />
                     </View>
                 </View>
             )}

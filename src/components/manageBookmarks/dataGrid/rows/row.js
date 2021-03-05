@@ -23,7 +23,7 @@ export default function Row(props) {
     const handleSelect = () => setBookmarkIdSelected(rowId);
 
     return (
-        <DataTable.Row onPress={handleSelect} style={styles.rowStyle}>
+        <DataTable.Row key={bookmarkId} onPress={handleSelect} style={styles.rowStyle}>
             <Cell value={articleName} />
             <Cell value={createdAt} />
             <ChipCell values={tags} />

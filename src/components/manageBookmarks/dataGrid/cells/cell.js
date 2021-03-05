@@ -6,7 +6,7 @@ export default function Cell(props) {
     const { value } = props;
 
     return (
-        <DataTable.Cell style={{ height: 50 }}>
+        <DataTable.Cell key={value} style={{ height: 50 }}>
             {value}
         </DataTable.Cell>
     )

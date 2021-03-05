@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBookmark } from '../../utils/storage';
-import { Button, Subheading, Divider, TextInput } from 'react-native-paper';
+import { Button, Subheading, Divider, TextInput, Text } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
 import AlertBar from '../alertBar/alertBar';
 
@@ -30,13 +30,16 @@ export default function NewBookmark() {
     }
 
     const handleSubmit = async () => {
+        console.log(bookmarkUrl);
         return createBookmark(bookmarkUrl)
-            .then(() => {
+            .then(createBookmarkResult => {
+                console.log(createBookmarkResult)
                 setError(false);
                 setMessage('Url has now been stored, please await your results.');
                 setVisible(true);
             })
             .catch((errorThrown) => {
+                console.log(errorThrown);
                 setError(true);
                 setMessage(errorThrown.message);
                 setVisible(true);
