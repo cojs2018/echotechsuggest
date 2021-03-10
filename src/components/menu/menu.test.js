@@ -12,10 +12,15 @@ import Menu from './menu';
 NewBookmark.mockReturnValue(<div><p>New Bookmark</p></div>);
 ManageBookmarks.mockReturnValue(<div><p>Manage Bookmarks</p></div>);
 
+const props = {
+    switchValue: false, 
+    handleSwitch: jest.fn(async () => {}),
+}
+
 describe('Menu', () => {
     it('renders correctly', () => {
         const tree = render
-            .create(<Menu />)
+            .create(<Menu {...props} />)
             .toJSON();
 
         expect(tree).toMatchSnapshot();
@@ -25,10 +30,12 @@ describe('Menu', () => {
 test('Menu buttons', async () => {
     let page = 0;
     const setPage = jest.fn(async (newPage) => page = newPage);
-    let bookmarkId = '';
+    let bookmarkIdSelected = '';
+    const setBookmarkIdSelected = jest.fn(async (newBookarkId) => bookmarkIdSelected = newBookarkId);
 
     React.useState = jest.fn()
-        .mockReturnValueOnce([page, setPage]);
+        .mockReturnValueOnce([page, setPage])
+        .mockReturnValueOnce([bookmarkIdSelected, setBookmarkIdSelected]);
 
     const wrapper = mount(<Menu />);
 

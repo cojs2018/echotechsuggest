@@ -2,30 +2,21 @@ import React from 'react';
 import { DataTable, Chip } from 'react-native-paper';
 import PropTypes from 'prop-types';
 
-const stringToChip = (stringValue) => {
+const tagToChip = (tag) => {
     return (
-        <Chip key={stringValue}>
-            {stringValue.substring(0, 4)}
+        <Chip key={tag.tagId}>
+            {tag.value.substring(0, 4)}
         </Chip>
     )
 }
 
-export default function ChipCell(props) {
-    const { values } = props;
+export default function ChipCell({ values = [] }) {
 
-    const chipSet = values.map(text => stringToChip(text.value));
+    const chipSet = values.map(tag => tagToChip(tag));
 
     return (
         <DataTable.Cell>
             {chipSet}
         </DataTable.Cell>
     )
-}
-
-ChipCell.defaultProps = {
-    values: [],
-}
-
-ChipCell.propTypes = {
-    values: PropTypes.arrayOf(PropTypes.string),
 }

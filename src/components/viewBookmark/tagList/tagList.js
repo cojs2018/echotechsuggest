@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { listTags, updateBookmark } from '../../../utils/storage';
 import { Chip, Text, IconButton, TextInput, Menu, Button } from 'react-native-paper';
+import Select from './select';
 
 export default function tagList({
     bookmarkId,
@@ -14,7 +15,6 @@ export default function tagList({
     const oldTags = currentTags;
     const [newTags, setNewTags] = React.useState([]);
     const [edit, setEdit] = React.useState(false);
-    const [dropDown, setDropDown] = React.useState(false);
 
     const handleTagSelection = async () => {
         return listTags()
@@ -40,14 +40,10 @@ export default function tagList({
         setEdit(false);
     };
 
-    const handleOpen = () => setDropDown(true);
-    const handleClose = () => setDropDown(false);
-
     const handleSelect = (tag) => {
         const tempNewTags = newTags;
         tempNewTags.push(tag);
         setNewTags(tempNewTags);
-        handleClose();
     };
 
     const handleNewTag = (synthEvent) => {
@@ -62,7 +58,6 @@ export default function tagList({
         const tempNewTags = newTags;
         tempNewTags.push(newTagItem);
         setNewTags(tempNewTags);
-        handleClose();
     };
 
     const handleRemoveTag = (tagToRemove) => {
@@ -103,14 +98,12 @@ export default function tagList({
         handleTagSelection();
     }, []);
 
-    const menuOfTags = tagSelection
+    const selectTags = tagSelection
         .filter(tag => !currentTags.includes(tag))
-        .map(tag => (<Menu.Item 
-                        key={tag.tagId} 
-                        onPress={() => handleSelect(tag)}
-                    >
-                        {tag.value}
-                    </Menu.Item>));
+        .map(tag => ({
+            tag,
+            pressHandler: () => handleSelect(tag),
+        }));
 
     return (
         <View>
@@ -143,13 +136,7 @@ export default function tagList({
                             >
                                 {tag.value}
                             </Chip>))}
-                        <Menu
-                            visible={dropDown}
-                            onDismiss={handleClose}
-                            anchor={<Button icon="menu" onPress={handleOpen} />}
-                        >
-                            {menuOfTags}
-                        </Menu>
+                        <Select items={selectTags} />
                         <TextInput
                             onEndEditing={handleNewTag}
                         />
@@ -169,5 +156,5 @@ const styles = StyleSheet.create({
         flex: 0,
         flexDirection: 'row',
         justifyContent: 'space-between'
-    }
+    },
 })

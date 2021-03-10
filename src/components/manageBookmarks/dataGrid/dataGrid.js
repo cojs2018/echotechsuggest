@@ -16,7 +16,6 @@ export default function DataGrid({ setBookmarkIdSelected }) {
         setIsLoading(true);
         return listBookmarks()
             .then(listOfArticles => {
-                console.log(listOfArticles);
                 setRows(listOfArticles);
                 setIsLoading(false);
             })

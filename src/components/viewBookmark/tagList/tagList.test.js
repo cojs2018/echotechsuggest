@@ -1,9 +1,11 @@
-jest.mock('../../../utils/storage')
+jest.mock('../../../utils/storage');
+jest.mock('./Select');
 
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import TagList from './tagList';
+import Select from './Select';
 import { listTags, updateBookmark } from '../../../utils/storage';
 
 listTags.mockReturnValue(new Promise((resolve, reject) => {
@@ -19,7 +21,9 @@ listTags.mockReturnValue(new Promise((resolve, reject) => {
             "featured": 1
         },
     ])
-}))
+}));
+
+Select.mockImplementation(({items}) => items);
 
 describe('TagList', () => {
 
@@ -85,8 +89,7 @@ test('Edit', async () => {
     React.useState = jest.fn()
         .mockReturnValueOnce([tagSelection, setTagSelection])
         .mockReturnValueOnce([newTags, setNewTags])
-        .mockReturnValueOnce([edit, setEdit])
-        .mockReturnValueOnce([dropDown, setDropDown]);
+        .mockReturnValueOnce([edit, setEdit]);
 
     const wrapper = mount(<TagList {...props} />);
 
@@ -129,8 +132,7 @@ test('Cancel', async () => {
     React.useState = jest.fn()
         .mockReturnValueOnce([tagSelection, setTagSelection])
         .mockReturnValueOnce([newTags, setNewTags])
-        .mockReturnValueOnce([edit, setEdit])
-        .mockReturnValueOnce([dropDown, setDropDown]);
+        .mockReturnValueOnce([edit, setEdit]);
 
     const wrapper = mount(<TagList {...props} />);
 
@@ -180,8 +182,7 @@ test('Remove Tag', async () => {
     React.useState = jest.fn()
         .mockReturnValueOnce([tagSelection, setTagSelection])
         .mockReturnValueOnce([newTags, setNewTags])
-        .mockReturnValueOnce([edit, setEdit])
-        .mockReturnValueOnce([dropDown, setDropDown]);
+        .mockReturnValueOnce([edit, setEdit]);
 
     const wrapper = mount(<TagList {...props} />);
 
@@ -274,8 +275,7 @@ test('Save', async () => {
     React.useState = jest.fn()
         .mockReturnValueOnce([tagSelection, setTagSelection])
         .mockReturnValueOnce([newTags, setNewTags])
-        .mockReturnValueOnce([edit, setEdit])
-        .mockReturnValueOnce([dropDown, setDropDown]);
+        .mockReturnValueOnce([edit, setEdit]);
 
     updateBookmark.mockReturnValueOnce(new Promise((resolve, reject) => {
         resolve({

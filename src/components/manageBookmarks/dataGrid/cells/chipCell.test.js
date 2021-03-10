@@ -6,7 +6,10 @@ import ChipCell from "./chipCell";
 describe('Cell', () => {
     it('renders correctly', () => {
         const props = {
-            values: ['tag0', 'tag1', 'tag2']
+            values: [{
+                tagId: 'tag0',
+                value: 'Artificial Intelligence',
+            }]
         }
 
         const tree = render

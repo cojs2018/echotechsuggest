@@ -8,12 +8,12 @@ import TagList from './tagList/tagList';
 
 export default function ViewBookmark ({
     bookmarkIdSelected,
-    setPage,
+    setPage
 }) {
 
     const [isLoading, setIsLoading] = React.useState(false);
     const [details, setDetails] = React.useState({
-        bookmarkId: bookmarkIdSelected,
+        bookmarkId: '',
         articleName: '',
         path: 'No Path',
         url: 'No URL',
@@ -42,7 +42,7 @@ export default function ViewBookmark ({
     }, []);
 
     const handleDelete = async () => {
-        return deleteBookmark(bookmarkId)
+        return deleteBookmark(bookmarkIdSelected)
             .then((onfulfilled) => {
                 const responseAlertMessage = {
                     status: 'success',
